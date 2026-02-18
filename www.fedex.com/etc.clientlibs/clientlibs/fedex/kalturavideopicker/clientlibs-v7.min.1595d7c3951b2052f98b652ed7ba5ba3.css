@@ -1,0 +1,6 @@
+.mavice-kp-outer{display:inline-block;position:relative;margin-block-end:40px}
+.mavice-kp-outer .mavice-kp-pusher{margin-block-start:56.25%}
+.mavice-kp-outer .mavice-kp-player{position:absolute;inset-block-start:0;inset-inline-start:0;inset-inline-end:0;inset-block-end:-36px}
+.playkit-smart-container.playkit-top.playkit-left{margin-inline-start:-210px}
+.playkit-dropdown-menu.playkit-top.playkit-left,.playkit-dropdown-menu.playkit-stick-bottom.playkit-left{margin-inline-start:-65px}
+.playkit-dropdown .playkit-dropdown-button{padding-inline-start:20px;padding-inline-end:0}

@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Brandfolder Image Embed</title>
+  </head>
+  <style>
+    html {
+      box-sizing: border-box;
+      font-size: 16px;
+      height: 100%;
+    }
+
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+
+    body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+      margin: 0;
+      padding: 0;
+      font-weight: normal;
+    }
+
+    ol, ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    #image-frame {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 100vh;
+      width: 100%;
+    }
+  </style>
+  <body>
+    <div id="image-frame" style="background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8++8XEwAI7gL5LjrlMAAAAABJRU5ErkJggg==')"></div>
+    <script>
+      window.BFLDR = {};
+      BFLDR.init = function () {
+        var frameurl = new URL(window.html);
+        var framepath = frameurl.pathname;
+        var framepath_parts = framepath.split("https://frame.bfldr.com/");
+        var params = new URLSearchParams(window.location.search);
+        var size = params.get('size');
+        var position = params.get('position');
+        var logo = document.getElementById('image-frame');
+
+        if (size == 'cover') {
+          logo.style.backgroundSize='cover'; // else contain is default
+        }
+        if (position === 'bottom' || position === 'center' || position === 'left' || position === 'right' || position === 'top') {
+          logo.style.backgroundPosition=position;
+        }
+
+        window.onresize = window.onload = function () {
+          var width;
+          if (window.innerWidth < 300) {
+            width = 300;
+          } else if (window.innerWidth < 500)  {
+            width = 500;
+          } else if (window.innerWidth < 1000) {
+            width = 1000;
+          } else if (window.innerWidth < 2000) {
+            width = 2000;
+          } else if (window.innerWidth < 3000) {
+            width = 3000;
+          } else if (window.innerWidth < 4000) {
+            width = 4000;
+          } else {
+            width = 5000;
+          }
+
+          logo.style.backgroundImage = "url('https://cdn.bfldr.com/" + framepath_parts[1] + "/" + framepath_parts[2] + "/" + framepath_parts[3] + "/" + framepath_parts[4]  + "?format=auto&width=" + width + "')";
+        };
+      };
+
+      (function() {
+        BFLDR.init();
+      })();
+    </script>
+  </body>
+</html>
