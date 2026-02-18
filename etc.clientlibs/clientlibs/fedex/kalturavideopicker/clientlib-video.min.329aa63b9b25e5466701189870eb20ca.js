@@ -1,0 +1,3 @@
+var kpId=$("#fxg-kpId").val(),playerId=$("#fxg-playId").val(),src="";
+$(".videoWrapper").each(function(a){a=$(".versionFinder").val();if(void 0!=a&&void 0!=kpId&&void 0!=playerId){src="v7"==a?"https://cdnapisec.kaltura.com/p/"+kpId+"/embedPlaykitJs/uiconf_id/"+playerId:"https://cdnapisec.kaltura.com/p/"+kpId+"/sp/"+kpId+"00/embedIframeJs/uiconf_id/"+playerId+"/partner_id/"+kpId;var b=$(this);$.getScript(src,function(){init(b.parent())}).fail(function(c,e,d){0==c.readyState?console.log("Script failed to load"):console.log("Error loading script: "+d.toString())})}});
+function init(a){mavice.kaltura.initComponent(a)};
